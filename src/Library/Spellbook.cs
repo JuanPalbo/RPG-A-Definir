@@ -12,7 +12,7 @@ public class Spellbook: IItem
     public string Name {get; set; }
     public int DefenseValue { get; set; }
     public int AttackValue{ get; set; }
-    public List<ISpell> Spells { get; set; }
+    public static List<ISpell> Spells { get; set; }
     public void AddSpell(ISpell spell)
     {
         Spells.Add(spell);
