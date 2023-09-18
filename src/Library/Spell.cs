@@ -7,6 +7,6 @@ public class Spell
         Name = name;
         AttackValue = attackValue;
     }
-    string Name { get; set; }
-    int AttackValue { get; set; }
+    public string Name { get; set; }
+    public int AttackValue { get; set; }
 }

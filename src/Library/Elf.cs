@@ -19,8 +19,12 @@ public class Elf: ICharacter
     public List<IItem> Inventory{ get; set; }
     public void Attack(ICharacter character)
     {
-        character.CurrentHp -= StatAttack;
+        character.CurrentHp -= (StatAttack-character.StatDefense);
         AttackPrinter.PrintAttack(this, character);
+        if (character.CurrentHp > character.BaseHp)
+        {
+            character.CurrentHp = character.BaseHp;
+        }
     }
     public void Equip(IItem item)
     {
