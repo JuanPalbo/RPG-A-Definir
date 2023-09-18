@@ -19,31 +19,23 @@ public class Wizard: ICharacter
     public List<IItem> Inventory{ get; set; }
     public void Attack(ICharacter character)
     {
-        bool hasSpellbook = false;
+        int spellDmg = 0;
         foreach(IItem i in Inventory)
         {
             if(i is Spellbook)
             {
-                hasSpellbook = true;
                 foreach(Spell j in Spellbook.Spells)
                 {
-                    character.StatAttack += j.AttackValue;
+                    spellDmg += j.AttackValue;
                 }
             }
         }
-        character.CurrentHp -= (StatAttack-character.StatDefense);
+        character.CurrentHp -= (StatAttack+spellDmg-character.StatDefense);
+        
         if (character.CurrentHp > character.BaseHp)
         {
             character.CurrentHp = character.BaseHp;
         }
-        if (hasSpellbook)
-        {
-            foreach(Spell j in Spellbook.Spells)
-            {
-                character.StatAttack -= j.AttackValue;
-            }
-        }
-        
         AttackPrinter.PrintAttack(this, character);
     }
     public void Equip(IItem item)

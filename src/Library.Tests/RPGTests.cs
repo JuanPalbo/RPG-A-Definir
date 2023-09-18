@@ -43,7 +43,6 @@ public class ElfAtackTests
         Wizard enemy = new Wizard("dos", 10, 3, 1);
         Spell spell = new Spell("uno", 2);
         List<Spell> spells = new List<Spell>();
-        spells.Add(spell);
         Spellbook spellbook = new Spellbook("uno", 0, 0, spells);
         spellbook.AddSpell(spell);
         wizard.Equip(spellbook);
