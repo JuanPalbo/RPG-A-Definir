@@ -1,3 +1,5 @@
+using NUnit.Framework.Constraints;
+
 namespace Library.Tests;
 
 public class ElfAtackTests
@@ -67,6 +69,11 @@ public class ElfAtackTests
         Console.SetOut(output);
         DefenseStatPrinter.PrintDefenseStat(dwarf);
         Assert.AreEqual($"Bruenor has 2 defense.\r\n", output.ToString());
+    }
+    [Test]
+    public void Test_Attack_Armour()
+    {
+        Dwarf dwarf =  
     }
 
 }

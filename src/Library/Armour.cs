@@ -1,6 +1,6 @@
 ﻿namespace Library;
 
-public class Armour
+public class Armour: IItem
 {
     public Armour(string name, int defenseValue, int attackValue)
     {
