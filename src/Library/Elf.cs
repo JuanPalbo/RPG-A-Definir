@@ -20,15 +20,18 @@ public class Elf: ICharacter
     public void Attack(ICharacter character)
     {
         character.CurrentHp -= StatAttack;
+        AttackPrinter.PrintAttack(this, character);
     }
     public void Equip(IItem item)
     {
         Inventory.Add(item);
         StatAttack += item.AttackValue;
+        StatDefense += item.DefenseValue;
     }
     public void Unequip(IItem item)
     {
         Inventory.Remove(item);
+        StatAttack -= item.AttackValue;
         StatDefense -= item.DefenseValue;
     }
     public void ChangeItem(IItem item, IItem newItem)
@@ -39,6 +42,7 @@ public class Elf: ICharacter
     public void Heal(ICharacter character)
     {
         character.CurrentHp = character.BaseHp;
+        HealPrinter.PrintHeal(this, character);
     }
     
     
