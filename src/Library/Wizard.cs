@@ -10,10 +10,6 @@ public class Wizard: ICharacter
         StatDefense = defense;
         CurrentHp = health;
         Inventory = new List<IItem>();
-        foreach(var i in Spellbook.Spells)
-        {
-            StatAttack += i.AttackValue;
-        }
     }
     public string Name {get; set; }
     public int BaseHp {get; set;}
@@ -24,15 +20,18 @@ public class Wizard: ICharacter
     public void Attack(ICharacter character)
     {
         character.CurrentHp -= StatAttack;
+        AttackPrinter.PrintAttack(this, character);
     }
     public void Equip(IItem item)
     {
         Inventory.Add(item);
         StatAttack += item.AttackValue;
+        StatDefense += item.DefenseValue;
     }
     public void Unequip(IItem item)
     {
         Inventory.Remove(item);
+        StatAttack -= item.AttackValue;
         StatDefense -= item.DefenseValue;
     }
     public void ChangeItem(IItem item, IItem newItem)
@@ -43,6 +42,7 @@ public class Wizard: ICharacter
     public void Heal(ICharacter character)
     {
         character.CurrentHp = character.BaseHp;
+        HealPrinter.PrintHeal(this, character);
     }
     
    
