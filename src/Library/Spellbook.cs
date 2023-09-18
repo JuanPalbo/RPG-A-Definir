@@ -2,7 +2,7 @@
 
 public class Spellbook: IItem
 {
-    public Spellbook(string name, int defenseValue, int attackValue, List<ISpell> spells)
+    public Spellbook(string name, int defenseValue, int attackValue, List<Spell> spells)
     {
         Name = name;
         DefenseValue = defenseValue;
@@ -12,12 +12,12 @@ public class Spellbook: IItem
     public string Name {get; set; }
     public int DefenseValue { get; set; }
     public int AttackValue{ get; set; }
-    public static List<ISpell> Spells { get; set; }
-    public void AddSpell(ISpell spell)
+    public static List<Spell> Spells { get; set; }
+    public void AddSpell(Spell spell)
     {
         Spells.Add(spell);
     }
-    public void RemoveSpell(ISpell spell)
+    public void RemoveSpell(Spell spell)
     {
         Spells.Remove(spell);
     }
