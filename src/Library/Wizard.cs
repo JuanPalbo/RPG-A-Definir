@@ -10,6 +10,10 @@ public class Wizard: ICharacter
         StatDefense = defense;
         CurrentHp = health;
         Inventory = new List<IItem>();
+        foreach(var i in Spellbook.Spells)
+        {
+            StatAttack += i.AttackValue;
+        }
     }
     public string Name {get; set; }
     public int BaseHp {get; set;}
@@ -40,12 +44,6 @@ public class Wizard: ICharacter
     {
         character.CurrentHp = character.BaseHp;
     }
-    public void AttackSpell(ISpell spell, ICharacter character)
-    {
-        if(Spellbook.Spells.Contains(spell))
-        {
-            character.CurrentHp -= spell.AttackValue;
-        }
-    }
+    
    
 }
