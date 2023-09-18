@@ -2,5 +2,6 @@
 
 public interface ISpell
 {
-    //??? Nada en consigna
+    string Name { get; set; }
+    int AttackValue { get; set; }
 }
